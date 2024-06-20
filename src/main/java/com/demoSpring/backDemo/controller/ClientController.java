@@ -24,4 +24,15 @@ public class ClientController {
     public List<Client> getAllClients(){
         return clientService.getAllClients();
     }
+
+    @GetMapping("/{id}")
+    public Client getClientbyId(@PathVariable int id){
+        return clientService.getClient(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteClientById(@PathVariable int id) {
+        clientService.deleteClient(id);
+        return "Client deleted " + id;
+    }
 }
